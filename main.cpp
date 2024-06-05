@@ -1,18 +1,17 @@
 #include <iostream>
 using namespace std;
 
+void swap(int* a, int* b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 int main() {
-	int number;
-	cout << "Enter a number: ";
-	cin >> number;
-	if (*(&number) > 0) {
-		cout << "The number is positive." << endl;
-	}
-	else if (*(&number) < 0) {
-		cout << "The number is negative." << endl;
-	}
-	else {
-		cout << "The number is zero." << endl;
-	}
-	return 0;
+	int x, y;
+	cout << "Enter two integers: ";
+	cin >> x >> y;
+	cout << "Before swap: x = " << x << ", y = " << y << endl;
+	swap(&x, &y);
+	cout << "After swap: x = " << x << ", y = " << y << endl;
 }
