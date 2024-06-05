@@ -2,30 +2,19 @@
 using namespace std;
 
 int main() {
-	int num1, num2;
-	int* p1, * p2;
-	char op;
-	int result;
-	cout << "Enter two numbers: ";
-	cin >> num1 >> num2;
-	p1 = &num1;
-	p2 = &num2;
-	cout << "Enter an operator (+, -, *, /): ";
-	cin >> op;
-	switch (op) {
-	case '+':
-		result = *p1 + *p2;
-		break;
-	case '-':
-		result = *p1 - *p2;
-		break;
-	case '*':
-		result = *p1 * *p2;
-		break;
-	case '/':
-		result = *p1 / *p2;
-		break;
-	}
-	cout << "Result: " << result << endl;
-	return 0;
+    const int SIZE = 5;
+    int arr[SIZE];
+    int sum = 0;
+    cout << "Enter " << SIZE << " integers:" << endl;
+    for (int i = 0; i < SIZE; ++i) {
+        cout << "Enter integer " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+    int* ptr = arr;
+    for (int i = 0; i < SIZE; ++i) {
+        sum += *ptr;
+        ptr++;
+    }
+    cout << "Sum of array elements: " << sum << endl;
+    return 0;
 }
