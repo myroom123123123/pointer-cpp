@@ -3,27 +3,32 @@ using namespace std;
 
 int main() {
     const int SIZE = 5;
-	int* arr = new int[SIZE];
-    cout << "Enter " << SIZE << " integers:" << endl;
+	int* arr1 = new int[SIZE];
+	int* arr2 = new int[SIZE];
+    cout << "Enter " << SIZE << " integers for Array 1:" << endl;
     for (int i = 0; i < SIZE; ++i) {
         cout << "Enter integer " << i + 1 << ": ";
-        cin >> arr[i];
+        cin >> arr1[i];
     }
-    int* ptr_start = arr;
-    int* ptr_end = arr + SIZE - 1;
-    while (ptr_start < ptr_end) {
-        int temp = *ptr_start;
-        *ptr_start = *ptr_end;
-        *ptr_end = temp;
-        ptr_start++;
-        ptr_end--;
-    }
-    cout << "Reversed array: ";
+    int* ptr1 = arr1 + SIZE - 1;
+    int* ptr2 = arr2;
     for (int i = 0; i < SIZE; ++i) {
-        cout << arr[i] << " ";
+        *ptr2 = *ptr1;
+        ptr1--;
+        ptr2++;
+    }
+    cout << "Array 1: ";
+    for (int i = 0; i < SIZE; ++i) {
+        cout << arr1[i] << " ";
     }
     cout << endl;
-	delete[] arr;
+    cout << "Array 2 (copied from Array 1 in reverse order): ";
+    for (int i = 0; i < SIZE; ++i) {
+        cout << arr2[i] << " ";
+    }
+    cout << endl;
+	delete[] arr1;
+	delete[] arr2;
     return 0;
 }
 
