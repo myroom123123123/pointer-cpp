@@ -3,7 +3,7 @@ using namespace std;
 
 int main() { 
     const int SIZE = 5;
-    int arr[SIZE];
+    int * arr = new int[SIZE];;
     int sum = 0;
     cout << "Enter " << SIZE << " integers:" << endl;
     for (int i = 0; i < SIZE; ++i) {
@@ -16,5 +16,6 @@ int main() {
         ptr++;
     }
     cout << "Sum of array elements: " << sum << endl;
+    delete[] arr;
     return 0;
 }
