@@ -3,8 +3,8 @@ using namespace std;
 
 int main() {
     const int SIZE = 5;
-    int arr1[SIZE];
-    int arr2[SIZE];
+	int* arr1 = new int[SIZE];
+	int* arr2 = new int[SIZE];
     cout << "Enter " << SIZE << " integers for Array 1:" << endl;
     for (int i = 0; i < SIZE; ++i) {
         cout << "Enter integer " << i + 1 << ": ";
@@ -27,5 +27,7 @@ int main() {
         cout << arr2[i] << " ";
     }
     cout << endl;
+	delete[] arr1;
+	delete[] arr2;
     return 0;
 }
